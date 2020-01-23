@@ -5,6 +5,7 @@ public class ProxyDTO {
     String port;
     String login;
     String password;
+    String protocol;
 
     public ProxyDTO(String host, String port) {
         this.host = host;
@@ -16,6 +17,14 @@ public class ProxyDTO {
         this.port = port;
         this.login = login;
         this.password = password;
+    }
+
+    public ProxyDTO(String host, String port, String login, String password, String protocol) {
+        this.host = host;
+        this.port = port;
+        this.login = login;
+        this.password = password;
+        this.protocol = protocol;
     }
 
     public String getHost() {
@@ -48,5 +57,13 @@ public class ProxyDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
     }
 }
