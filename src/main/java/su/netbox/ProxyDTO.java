@@ -66,4 +66,9 @@ public class ProxyDTO {
     public void setProtocol(String protocol) {
         this.protocol = protocol;
     }
+
+    @Override
+    public String toString() {
+        return host + ":" + port + ":" + login + ":" + password;
+    }
 }
