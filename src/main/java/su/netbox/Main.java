@@ -25,7 +25,6 @@ public class Main {
         clientBuilder = clientBuilder.setDefaultCredentialsProvider(credentialsProvider);
 
         CloseableHttpClient httpClient = clientBuilder.build();
-        HttpHost targetHost = new HttpHost("https://www.instagram.com/1rich_dad1/", 80, "http");
         HttpHost proxyHost = new HttpHost("194.183.168.4", 20028, "http");
 
         RequestConfig.Builder requestConfigBuilder = RequestConfig.custom();
@@ -38,6 +37,7 @@ public class Main {
         try {
             HttpResponse httpResponse = httpClient.execute(httpGet);
             System.out.println(httpResponse.getStatusLine());
+            httpClient.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
