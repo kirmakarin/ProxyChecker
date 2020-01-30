@@ -18,6 +18,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        String targetUrl = "https://www.instagram.com/";
         List<ProxyDTO> proxies = new ArrayList<ProxyDTO>();
         List<ProxyDTO> brokenProxies = new ArrayList<ProxyDTO>();
 
@@ -27,7 +28,7 @@ public class Main {
         for (ProxyDTO proxy : proxies) {
             //be informed that if checkProxy return false
             // it is not necessary that the proxy is not working (disconnection, url target is not correct, etc.)
-            if (!checkProxy(proxy)) {
+            if (!checkProxy(proxy, targetUrl)) {
                 brokenProxies.add(proxy);
             }
         }
@@ -41,7 +42,7 @@ public class Main {
 
     }
 
-    private static Boolean checkProxy(ProxyDTO proxy) {
+    private static Boolean checkProxy(ProxyDTO proxy, String targetUrl) {
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
 
         credentialsProvider.setCredentials(new AuthScope(proxy.getHost(), Integer.parseInt(proxy.getPort())),
@@ -60,7 +61,7 @@ public class Main {
         RequestConfig config = requestConfigBuilder.build();
 
         //toDo: Add opportunity to select target
-        HttpGet httpGet = new HttpGet("https://www.instagram.com/1rich_dad1/");
+        HttpGet httpGet = new HttpGet(targetUrl);
         httpGet.setConfig(config);
 
         try {
