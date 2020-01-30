@@ -1,11 +1,11 @@
 package pw.netbox;
 
 public class ProxyDTO {
-    String host;
-    String port;
-    String login;
-    String password;
-    String protocol;
+    private String host;
+    private String port;
+    private String login;
+    private String password;
+    private String protocol;
 
     public ProxyDTO(String host, String port) {
         this.host = host;

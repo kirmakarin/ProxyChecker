@@ -19,8 +19,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         String targetUrl = "https://www.instagram.com/";
-        List<ProxyDTO> proxies = new ArrayList<ProxyDTO>();
-        List<ProxyDTO> brokenProxies = new ArrayList<ProxyDTO>();
+        List<ProxyDTO> proxies = new ArrayList<>();
+        List<ProxyDTO> brokenProxies = new ArrayList<>();
 
         proxies.add(new ProxyDTO("194.183.168.4", "20028", "user7930", "koo5Vahx"));
 
@@ -49,7 +49,7 @@ public class Main {
                 new UsernamePasswordCredentials(proxy.getLogin(), proxy.getPassword()));
 
         HttpClientBuilder clientBuilder = HttpClients.custom();
-        clientBuilder = clientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+        clientBuilder.setDefaultCredentialsProvider(credentialsProvider);
 
         CloseableHttpClient httpClient = clientBuilder.build();
         //toDo: Add opportunity to select default protocol
