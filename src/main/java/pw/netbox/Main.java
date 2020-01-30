@@ -1,4 +1,4 @@
-package su.netbox;
+package pw.netbox;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;

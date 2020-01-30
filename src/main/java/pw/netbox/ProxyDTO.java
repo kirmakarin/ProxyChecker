@@ -1,4 +1,4 @@
-package su.netbox;
+package pw.netbox;
 
 public class ProxyDTO {
     String host;
